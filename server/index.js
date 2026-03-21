@@ -24,7 +24,11 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://studynotion-frontend-one-ashy.vercel.app/",
+    origin: [
+        "http://localhost:3000",
+        "https://studynotion-frontend-one-ashy.vercel.app/",
+        "https://studynotion-frontend-abhay-rawats-projects-2e795baf.vercel.app/"
+    ],
     credentials: true
 }));
 app.use(
