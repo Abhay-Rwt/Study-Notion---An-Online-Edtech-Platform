@@ -154,7 +154,7 @@ exports.login = async (req, res) => {
         }
 
         const user = await User.findOne({ email }).populate("additionalDetails").exec();
-        
+
         if (!user) {
             res.status(401).json({
                 success: false,
@@ -183,7 +183,19 @@ exports.login = async (req, res) => {
 
             console.log(user);
 
-            res.cookie("token", token, options).status(200).json({
+            // res.cookie("token", token, options).status(200).json({
+            //     success: true,
+            //     token,
+            //     user,
+            //     message: "Logged in successfully"
+            // });
+
+            res.cookie("token", token, {
+                expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+                httpOnly: true,       // secure from JS (good)
+                secure: true,         // REQUIRED for HTTPS in production
+                sameSite: "None",     // REQUIRED for cross-site cookies
+            }).status(200).json({
                 success: true,
                 token,
                 user,
@@ -236,7 +248,7 @@ exports.changePassword = async (req, res) => {
             updatedUserDetails,
         });
     }
-    catch(error){
+    catch (error) {
         return res.status(500).json({
             success: false,
             message: "Unable to update password",
