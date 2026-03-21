@@ -23,12 +23,14 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 
+const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:3000";
+
 app.use(
-	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
-	})
-)
+    cors({
+        origin: allowedOrigin,
+        credentials: true,
+    })
+);
 
 app.use(
 	fileUpload({
