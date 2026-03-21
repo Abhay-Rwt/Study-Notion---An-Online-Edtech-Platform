@@ -24,7 +24,8 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "*"
+    origin: "https://studynotion-frontend-one-ashy.vercel.app/",
+    credentials: true
 }));
 app.use(
     fileUpload({
