@@ -20,8 +20,6 @@ const PORT = process.env.PORT || 4000;
 // database connect
 database.connect();
 
-// middlewares
-app.use(express.json());
 app.use(cors({
     origin: function (origin, callback) {
         if (
@@ -31,11 +29,17 @@ app.use(cors({
         ) {
             callback(null, true);
         } else {
-            callback(new Error("Not allowed by CORS"));
+            callback(new Error("CORS blocked"));
         }
     },
     credentials: true
 }));
+
+app.options("*", cors());
+
+// middlewares
+app.use(express.json());
+
 app.use(
     fileUpload({
         useTempFiles: true,
