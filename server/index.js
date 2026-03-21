@@ -20,20 +20,7 @@ const PORT = process.env.PORT || 4000;
 // database connect
 database.connect();
 
-app.use(cors({
-    origin: function (origin, callback) {
-        if (
-            !origin ||
-            origin.includes("vercel.app") ||
-            origin.includes("localhost")
-        ) {
-            callback(null, true);
-        } else {
-            callback(new Error("CORS blocked"));
-        }
-    },
-    credentials: true
-}));
+app.use(cors({ origin: true }));
 
 app.options("*", cors());
 
