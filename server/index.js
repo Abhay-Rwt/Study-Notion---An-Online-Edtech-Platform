@@ -23,12 +23,10 @@ database.connect();
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-    cors({
-        origin: "http://localhost:3000",
-        credentials: true,
-    })
-);
+app.use(cors({
+    origin: "https://studynotion-frontend-one-ashy.vercel.app/",
+    credentials: true
+}));
 app.use(
     fileUpload({
         useTempFiles: true,
