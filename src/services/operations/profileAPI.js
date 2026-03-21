@@ -44,7 +44,7 @@ export async function getUserEnrolledCourses(token) {
             GET_USER_ENROLLED_COURSES_API,
             null,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             }
         )
         console.log("AFTER Calling BACKEND API FOR ENROLLED COURSES");
@@ -71,7 +71,7 @@ export async function getInstructorData(token) {
     try {
         const response = await apiConnector("GET", GET_INSTRUCTOR_DATA_API, null,
             {
-                Authorisation: `Bearer ${token}`,
+                Authorization: `Bearer ${token}`,
             })
 
         console.log("GET_INSTRUCTOR_API_RESPONSE", response);
