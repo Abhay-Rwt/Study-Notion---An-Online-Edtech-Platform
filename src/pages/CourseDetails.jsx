@@ -35,7 +35,7 @@ function CourseDetails() {
         // Calling fetchCourseDetails fucntion to fetch the details
         ; (async () => {
             try {
-                const res = await fetchCourseDetails(courseId)
+                const res = await fetchCourseDetails(courseId, token)
                 // console.log("course details res: ", res)
                 setResponse(res)
             } catch (error) {
