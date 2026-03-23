@@ -8,9 +8,10 @@ exports.auth = async (req, res, next) => {
     try{
         const token = req.cookies?.token || req.body?.token || req.header("Authorization")?.replace("Bearer ", "");
         
-        console.log("COOKIE.......", req.cookie);
+        console.log("COOKIE.......", req.cookies);
         console.log("REQs BODY........", req.body);
         console.log("HEADER........", req.header("Authorization"));
+        console.log("TOKEN IN MIDDLEWARE...........", token);
 
         if(!token){
             return res.status(401).json({
