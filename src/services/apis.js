@@ -1,5 +1,10 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
+// AI CHAT ENDPOINTS
+export const chatEndpoints = {
+    CHAT_API : BASE_URL + "/chat"
+}
+
 // AUTH ENDPOINTS
 export const endpoints = {
   SENDOTP_API: BASE_URL + "/auth/sendotp",

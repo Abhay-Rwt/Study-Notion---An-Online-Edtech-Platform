@@ -26,6 +26,8 @@ import Catalog from "./pages/Catalog";
 import ViewCourse from "./pages/ViewCourse";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import { Instructor } from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import { Chat } from "./pages/Chat";
+import { ChatWidget } from "./pages/ChatWidget";
 
 function App() {
 	const { user } = useSelector((state) => state.profile);
@@ -142,7 +144,14 @@ function App() {
                 </Route>
 
 
+                {/* ai chat route */}
+                <Route element={ <PrivateRoute> <Chat /> </PrivateRoute> } path="/chat"></Route>
+
+
 			</Routes>
+
+
+            <ChatWidget />
 		</div>
 	);
 }
